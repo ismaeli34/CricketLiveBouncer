@@ -1,0 +1,39 @@
+    <!-- <p>{{liveMatches | json }}</p> -->
+
+<div class="container">
+
+    <h1 class="text-4xl font-bold text-green-600 ">Live Cricket Score</h1>
+
+    <div class="card-container flex-col md:flex-row flex-wrap flex">
+
+        @for(match of liveMatches; track $index){
+
+            <div class="p-2 md:w-[33%] w-full ">
+                <app-match-card [match]="match"></app-match-card>
+            </div>
+        }
+        @empty {
+            there is no match
+        }
+
+    </div>
+
+
+
+
+    
+
+    <!-- <div class="cards-container">
+        <div *ngFor="let match of liveMatches" class="card" [ngClass]="match.status.toLowerCase()">
+          <h2>{{ match.teamHeading }}</h2>
+          <p><strong>{{ match.matchNumberVenue }}</strong></p>
+          <p *ngIf="match.battingTeam">{{ match.battingTeam }}: {{ match.battingTeamScore }}</p>
+          <p *ngIf="match.bowlTeam">{{ match.bowlTeam }}: {{ match.bowlTeamScore }}</p>
+          <p *ngIf="match.liveText">{{ match.liveText }}</p>
+          <p *ngIf="match.textComplete">{{ match.textComplete }}</p>
+          <a *ngIf="match.matchLink" [href]="match.matchLink" target="_blank">View Live</a>
+          <div class="status-tag">{{ match.status }}</div>
+        </div>
+      </div> -->
+
+</div>

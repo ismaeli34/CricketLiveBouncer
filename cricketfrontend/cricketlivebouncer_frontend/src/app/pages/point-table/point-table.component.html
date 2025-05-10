@@ -1,0 +1,33 @@
+<div class="table-container p-4">
+    <h1 class="text-4xl font-bold text-green-600 px-2 mb-4">Points Table</h1>
+  
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-max divide-y divide-gray-200 bg-white shadow-md rounded-xl overflow-hidden">
+        <thead class="bg-gray-100 text-gray-700 text-sm">
+          <tr>
+            @for (heading of tableHeading; track $index) {
+              <th class="px-6 py-3 text-left font-semibold whitespace-nowrap">{{ heading }}</th>
+            }
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100 text-sm text-gray-700">
+          @for (team of pointTable; track $index) {
+            <tr
+              class="hover:bg-gray-50 transition-colors duration-150 cursor-pointer"
+              [ngClass]="{
+                'bg-green-200': $index <= 4,
+                'bg-red-200': $index > 4
+              }"
+            >
+              @if ($index > 0) {
+                @for (data of team; track $index) {
+                  <td class="px-6 py-4 whitespace-nowrap">{{ data }}</td>
+                }
+              }
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
